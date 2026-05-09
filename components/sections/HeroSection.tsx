@@ -81,25 +81,34 @@ export default function HeroSection({ profile, stats }: HeroSectionProps) {
               <Magnetic>
                 <a
                   href="#projects"
-                  className="group/cta relative inline-flex items-center gap-2 overflow-hidden rounded-full border border-accent bg-accent px-6 py-3 text-xs font-semibold uppercase tracking-[0.22em] text-black transition hover:bg-transparent hover:text-accent"
+                  className="group/cta relative inline-flex items-center gap-2 overflow-hidden rounded-full border border-accent/60 bg-accent/20 px-6 py-3 text-xs font-semibold uppercase tracking-[0.22em] text-foreground transition hover:bg-accent hover:text-background"
                 >
                   <span className="relative z-10">See my work</span>
-                  <span className="relative z-10 transition group-hover/cta:translate-x-0.5">→</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="relative z-10 transition group-hover/cta:translate-x-0.5">
+                    <path d="M5 12h14" />
+                    <path d="m13 5 7 7-7 7" />
+                  </svg>
                 </a>
               </Magnetic>
               <Magnetic strength={12}>
                 <a
                   href="#contact"
-                  className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-6 py-3 text-xs font-medium uppercase tracking-[0.22em] text-foreground transition hover:border-accent hover:text-accent"
+                  className="group inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-6 py-3 text-xs font-medium uppercase tracking-[0.22em] text-foreground transition hover:border-accent hover:text-accent"
                 >
                   Let&apos;s talk
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transition group-hover:translate-x-0.5">
+                    <path d="M5 12h14" />
+                    <path d="m13 5 7 7-7 7" />
+                  </svg>
                 </a>
               </Magnetic>
             </motion.div>
           </div>
 
           <div className="hidden self-end lg:block">
-            <RotatingBadge text="explore projects • explore projects • " />
+            <a href="#projects" aria-label="Explore projects">
+              <RotatingBadge text="explore projects • explore projects • " />
+            </a>
           </div>
         </div>
 

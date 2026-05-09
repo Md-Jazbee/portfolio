@@ -82,9 +82,13 @@ export default function TopNav({ items, brand, onOpenMobile }: TopNavProps) {
         <div className="flex items-center gap-2">
           <a
             href="#contact"
-            className="hidden rounded-full border border-accent/50 bg-accent/15 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.18em] text-accent transition hover:bg-accent/25 md:inline-flex"
+            className="group hidden items-center gap-2 rounded-full border border-accent/60 bg-accent/20 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-foreground transition hover:bg-accent hover:text-background md:inline-flex"
           >
-            Hire me
+            Contact me
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transition group-hover:translate-x-0.5">
+              <path d="M5 12h14" />
+              <path d="m13 5 7 7-7 7" />
+            </svg>
           </a>
           <button
             type="button"

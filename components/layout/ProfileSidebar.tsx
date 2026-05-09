@@ -37,9 +37,10 @@ export default function ProfileSidebar({
         }}
       />
 
-      <div className="flex flex-wrap items-center gap-4">
-        <motion.div
-          className="grid h-16 w-16 place-items-center rounded-2xl border border-accent/40 bg-accent/15 text-2xl font-semibold text-accent shadow-[0_0_30px_-10px_var(--primary_color)]"
+      <div className="rounded-2xl border border-accent/30 bg-accent/10 p-3">
+        <div className="flex flex-wrap items-center gap-4">
+          <motion.div
+            className="grid h-16 w-16 place-items-center rounded-2xl border border-accent/50 bg-background/70 text-2xl font-semibold text-accent shadow-[0_0_30px_-10px_var(--primary_color)]"
           animate={
             reduced
               ? undefined
@@ -52,18 +53,27 @@ export default function ProfileSidebar({
                 }
           }
           transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-        >
-          {initials}
-        </motion.div>
-        <div className="min-w-0 flex-1 basis-[200px]">
-          <p className="text-xs uppercase tracking-[0.3em] text-muted">Available for work</p>
-          <p className="mt-1 inline-flex items-center gap-2 text-sm text-foreground">
-            <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
-            </span>
-            Open to new roles
-          </p>
+          >
+            {initials}
+          </motion.div>
+          <div className="min-w-0 flex-1 basis-[200px]">
+            <p className="text-xs uppercase tracking-[0.3em] text-muted">Available for work</p>
+            <p className="mt-1 inline-flex items-center gap-2 text-sm text-foreground">
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
+              </span>
+              Open to new roles
+            </p>
+            <div className="mt-2 flex flex-wrap gap-2">
+              <span className="rounded-full border border-white/15 bg-white/[0.04] px-2.5 py-1 text-[10px] uppercase tracking-[0.16em] text-muted">
+                Remote-friendly
+              </span>
+              <span className="rounded-full border border-white/15 bg-white/[0.04] px-2.5 py-1 text-[10px] uppercase tracking-[0.16em] text-muted">
+                Platform Engineering
+              </span>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -103,9 +113,15 @@ export default function ProfileSidebar({
               href={item.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-xl border border-white/5 bg-background/30 px-2 py-2 text-center text-xs text-muted transition hover:border-accent/60 hover:text-accent"
+              className="group rounded-xl border border-white/5 bg-background/30 px-2 py-2 text-center text-xs text-muted transition hover:border-accent/60 hover:text-accent"
             >
-              {item.label}
+              <span className="inline-flex items-center gap-1">
+                {item.label}
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+                  <path d="M7 17 17 7" />
+                  <path d="M7 7h10v10" />
+                </svg>
+              </span>
             </a>
           ))}
         </div>
@@ -139,10 +155,13 @@ export default function ProfileSidebar({
       <Magnetic className="mt-2">
         <a
           href="#contact"
-          className="group/cta relative flex w-full items-center justify-center gap-2 overflow-hidden rounded-full border border-accent bg-accent px-5 py-3 text-sm font-semibold uppercase tracking-[0.22em] text-black transition hover:bg-transparent hover:text-accent"
+          className="group/cta relative flex w-full items-center justify-center gap-2 overflow-hidden rounded-full border border-accent/60 bg-accent/20 px-5 py-3 text-sm font-semibold uppercase tracking-[0.22em] text-foreground transition hover:bg-accent hover:text-background"
         >
           <span className="relative z-10">{profile.availability}</span>
-          <span className="relative z-10 transition group-hover/cta:translate-x-0.5">→</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="relative z-10 transition group-hover/cta:translate-x-0.5">
+            <path d="M5 12h14" />
+            <path d="m13 5 7 7-7 7" />
+          </svg>
         </a>
       </Magnetic>
     </motion.aside>
