@@ -1,0 +1,148 @@
+"use client";
+
+import { motion, useReducedMotion } from "framer-motion";
+import { useTheme } from "@/lib/ThemeContext";
+import type { LinkItem, PortfolioData } from "@/lib/types";
+import Magnetic from "@/components/animated/Magnetic";
+
+interface ProfileSidebarProps {
+  profile: PortfolioData["profile"];
+  socialLinks: LinkItem[];
+  accentPalette: string[];
+  initials: string;
+}
+
+export default function ProfileSidebar({
+  profile,
+  socialLinks,
+  accentPalette,
+  initials,
+}: ProfileSidebarProps) {
+  const { primaryColor, setPrimaryColor } = useTheme();
+  const reduced = useReducedMotion();
+
+  return (
+    <motion.aside
+      initial={{ opacity: 0, x: -30, filter: "blur(12px)" }}
+      animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
+      transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+      className="order-2 group relative flex flex-col gap-7 overflow-hidden rounded-3xl border border-white/10 bg-panel/55 p-6 backdrop-blur-xl shadow-[0_30px_80px_-40px_rgba(0,0,0,0.85)] xl:order-1 xl:sticky xl:top-24 xl:max-h-[calc(100vh-7rem)] xl:overflow-y-auto"
+    >
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 -z-10 opacity-70 transition-opacity duration-500 group-hover:opacity-100"
+        style={{
+          background:
+            "radial-gradient(420px circle at 30% 0%, color-mix(in oklab, var(--primary_color) 22%, transparent), transparent 60%)",
+        }}
+      />
+
+      <div className="flex items-center gap-4">
+        <motion.div
+          className="grid h-16 w-16 place-items-center rounded-2xl border border-accent/40 bg-accent/15 text-2xl font-semibold text-accent shadow-[0_0_30px_-10px_var(--primary_color)]"
+          animate={
+            reduced
+              ? undefined
+              : {
+                  boxShadow: [
+                    "0 0 30px -10px var(--primary_color)",
+                    "0 0 50px -8px var(--primary_color)",
+                    "0 0 30px -10px var(--primary_color)",
+                  ],
+                }
+          }
+          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+        >
+          {initials}
+        </motion.div>
+        <div>
+          <p className="text-xs uppercase tracking-[0.3em] text-muted">Available for work</p>
+          <p className="mt-1 inline-flex items-center gap-2 text-sm text-foreground">
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
+            </span>
+            Open to new roles
+          </p>
+        </div>
+      </div>
+
+      <div>
+        <h2 className="text-2xl font-semibold tracking-tight text-foreground">{profile.name}</h2>
+        <p className="mt-1 text-sm text-accent">{profile.role}</p>
+        <p className="mt-4 text-sm leading-relaxed text-muted">{profile.shortBio}</p>
+      </div>
+
+      <div className="space-y-2 text-sm">
+        <p className="text-xs uppercase tracking-[0.32em] text-muted">Reach me</p>
+        <a
+          href={`mailto:${profile.email}`}
+          className="group/link flex items-center justify-between rounded-xl border border-white/5 bg-background/30 px-3 py-2 text-foreground transition hover:border-accent/60"
+        >
+          <span className="text-sm">{profile.email}</span>
+          <span className="text-muted transition group-hover/link:translate-x-0.5 group-hover/link:text-accent">→</span>
+        </a>
+        <a
+          href={`tel:${profile.phone}`}
+          className="group/link flex items-center justify-between rounded-xl border border-white/5 bg-background/30 px-3 py-2 text-muted transition hover:border-accent/60 hover:text-foreground"
+        >
+          <span className="text-sm">{profile.phone}</span>
+          <span className="transition group-hover/link:translate-x-0.5 group-hover/link:text-accent">→</span>
+        </a>
+        <p className="text-xs text-muted">Based in {profile.location}</p>
+      </div>
+
+      <div>
+        <p className="mb-2 text-xs uppercase tracking-[0.32em] text-muted">Connect</p>
+        <div className="grid grid-cols-3 gap-2">
+          {socialLinks.map((item) => (
+            <a
+              key={item.label}
+              href={item.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-xl border border-white/5 bg-background/30 px-2 py-2 text-center text-xs text-muted transition hover:border-accent/60 hover:text-accent"
+            >
+              {item.label}
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <div>
+        <p className="mb-2 text-xs uppercase tracking-[0.32em] text-muted">Accent</p>
+        <div className="flex flex-wrap gap-2">
+          {accentPalette.map((color) => (
+            <button
+              key={color}
+              type="button"
+              aria-label={`Set accent color ${color}`}
+              onClick={() => setPrimaryColor(color)}
+              className={`relative h-7 w-7 overflow-hidden rounded-full border-2 transition ${
+                primaryColor === color ? "border-white" : "border-white/10 hover:border-white/40"
+              }`}
+              style={{ backgroundColor: color }}
+            >
+              {primaryColor === color ? (
+                <motion.span
+                  layoutId="accent-active"
+                  className="absolute inset-0 rounded-full ring-2 ring-white/80"
+                />
+              ) : null}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <Magnetic className="mt-2">
+        <a
+          href="#contact"
+          className="group/cta relative flex w-full items-center justify-center gap-2 overflow-hidden rounded-full border border-accent bg-accent px-5 py-3 text-sm font-semibold uppercase tracking-[0.22em] text-black transition hover:bg-transparent hover:text-accent"
+        >
+          <span className="relative z-10">{profile.availability}</span>
+          <span className="relative z-10 transition group-hover/cta:translate-x-0.5">→</span>
+        </a>
+      </Magnetic>
+    </motion.aside>
+  );
+}

@@ -1,0 +1,179 @@
+seo:
+  title: "Mohammad Jasbeer | Backend & Platform Engineer"
+  description: "Backend and Platform Engineer portfolio with distributed systems, observability, and AI tooling work."
+
+profile:
+  name: "Mohammad Jasbeer"
+  role: "Backend & Platform Engineer"
+  location: "Mangalore, Karnataka, India"
+  email: "jasbeerkalladka@gmail.com"
+  phone: "+91 81978 37402"
+  shortBio: "I modernize legacy tooling into reliable platform systems used at scale."
+  longBio: "I am a backend and platform engineer with 5+ years of experience building developer platforms. At Juniper Networks, I rebuilt internal code coverage and test tooling used by 5,000+ engineers by moving ad-hoc pipelines to Go/Python services, introducing RabbitMQ-based asynchronous workflows, strengthening observability, and shipping AI-assisted debugging tools."
+  availability: "Let's work together"
+
+navigation:
+  - id: "home"
+    label: "Home"
+  - id: "about"
+    label: "About"
+  - id: "experience"
+    label: "Experience"
+  - id: "skills"
+    label: "Skills"
+  - id: "projects"
+    label: "Projects"
+  - id: "education"
+    label: "Education"
+  - id: "contact"
+    label: "Contact"
+
+socialLinks:
+  - label: "LinkedIn"
+    url: "https://in.linkedin.com/in/mohammad-jasbeer"
+  - label: "GitHub"
+    url: "https://github.com/Md-Jazbee"
+  - label: "Email"
+    url: "mailto:jasbeerkalladka@gmail.com"
+
+accentPalette:
+  - "#28e98c"
+  - "#14c5fd"
+  - "#e4af12"
+  - "#eb5a5a"
+  - "#fa66ab"
+
+heroStats:
+  - value: "5+"
+    label: "Years of experience"
+  - value: "5,000+"
+    label: "Engineers supported"
+  - value: "3x"
+    label: "Pipeline throughput improvement"
+  - value: "50%"
+    label: "MTTR reduction via observability"
+
+strengths:
+  - "Turned legacy Perl/Node services into maintainable Python and Go systems with measurable delivery improvements."
+  - "Built distributed async orchestration with RabbitMQ and a custom Go scheduler for better reliability and horizontal scaling."
+  - "Shipped production observability with Elasticsearch and Kibana dashboards that made incident triage faster and repeatable."
+  - "Designed AI-assisted internal tools using RAG, ChromaDB, and open-source LLMs with pragmatic guardrails."
+
+experience:
+  - title: "Backend & Platform Engineer"
+    organization: "Juniper Networks"
+    period: "Aug 2021 - Present"
+    highlights:
+      - "Re-architected async job orchestration with RabbitMQ and a custom Go scheduler, improving throughput by 3x and reducing retry failures by 25%."
+      - "Migrated legacy Perl and Node.js modules to Python and Go, helping reduce feature lead time by around 30%."
+      - "Built centralized logging and observability using Elasticsearch and Kibana, reducing mean time to resolution by 50%."
+      - "Developed AI-assisted triage tooling with Llama, Mistral, RAG, and ChromaDB for faster developer debugging."
+      - "Implemented capacity forecasting for internal clusters, reducing manual operations by 30% and improving utilization by 20%."
+  - title: "Backend Engineer"
+    organization: "Atrimed Pharmaceuticals"
+    period: "Nov 2020 - Jul 2021"
+    highlights:
+      - "Designed database schemas and backend services for internal scientific workflows and invoicing systems."
+      - "Built API-driven sales analytics dashboards and internal operational tooling."
+  - title: "Research Intern"
+    organization: "Atrimed Pharmaceuticals"
+    period: "May 2019 - Jul 2019"
+    highlights:
+      - "Created data collection pipelines and schema designs for cheminformatics research use cases."
+
+skills:
+  - category: "Languages"
+    items:
+      - "Python"
+      - "Go"
+      - "JavaScript (Node.js)"
+  - category: "Backend & APIs"
+    items:
+      - "FastAPI"
+      - "Django"
+      - "Flask"
+      - "Express.js"
+      - "Ruby on Rails"
+      - "REST APIs"
+  - category: "Distributed Systems"
+    items:
+      - "RabbitMQ"
+      - "Kafka"
+      - "Event-driven architecture"
+      - "Async processing"
+      - "Service orchestration"
+  - category: "Infra & Cloud"
+    items:
+      - "Docker"
+      - "Kubernetes"
+      - "AWS (EC2, S3, IAM)"
+      - "GCP"
+      - "Jenkins"
+      - "GitHub/GitLab CI"
+  - category: "Data & Search"
+    items:
+      - "PostgreSQL"
+      - "MySQL"
+      - "MongoDB"
+      - "Elasticsearch"
+      - "ChromaDB"
+  - category: "AI Tooling"
+    items:
+      - "RAG pipelines"
+      - "Llama/Mistral integration"
+      - "MCP server integration"
+      - "Prompt/tool orchestration"
+
+projects:
+  - name: "Async Job Pipeline v2"
+    summary: "Replaced ad-hoc queue handling with RabbitMQ and a custom Go scheduler to improve reliability and parallelism."
+    impact: "3x throughput"
+    stack:
+      - "Go"
+      - "RabbitMQ"
+      - "Kubernetes"
+  - name: "Legacy Tooling Modernization"
+    summary: "Moved critical services from Perl and Node.js to Python and Go with phased migration and operational parity checks."
+    impact: "30% faster integration"
+    stack:
+      - "Python"
+      - "Go"
+      - "Node.js"
+  - name: "AI Debug Assistant for Coverage Triage"
+    summary: "Built an internal assistant over coverage and test data using retrieval-augmented generation and vector search."
+    impact: "Faster root-cause analysis"
+    stack:
+      - "Python"
+      - "RAG"
+      - "ChromaDB"
+      - "Llama/Mistral"
+  - name: "Platform Observability Layer"
+    summary: "Introduced centralized logging, dashboards, and alerting APIs to improve issue visibility across platform services."
+    impact: "50% MTTR reduction"
+    stack:
+      - "Elasticsearch"
+      - "Kibana"
+      - "REST APIs"
+  - name: "Capacity Forecasting Service"
+    summary: "Created a forecasting workflow to identify underutilized nodes and plan compute demand proactively."
+    impact: "20% utilization gain"
+    stack:
+      - "Python"
+      - "Time-series analysis"
+      - "Kubernetes"
+  - name: "MCP API Bridge for Internal Tools"
+    summary: "Connected AI agents to internal platform APIs with MCP servers and policy-aware integration patterns."
+    impact: "To be updated"
+    stack:
+      - "MCP"
+      - "Python/Go"
+      - "Internal APIs"
+
+education:
+  - degree: "B.E. Computer Science & Engineering"
+    institute: "N.M.A.M. Institute of Technology"
+    period: "2017 - 2020"
+
+contact:
+  heading: "Let's build reliable systems together"
+  note: "I am open to backend/platform engineering opportunities focused on distributed systems, developer experience, and AI-assisted tooling. For specific project links and certifications, this page currently uses best-effort placeholders and can be updated with your preferred details."
