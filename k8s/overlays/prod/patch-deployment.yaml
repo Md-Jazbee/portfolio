@@ -1,0 +1,11 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jasbeer-portfolio
+spec:
+  replicas: 3
+  template:
+    spec:
+      containers:
+        - name: web
+          image: ghcr.io/your-org/jasbeer-portfolio:latest
