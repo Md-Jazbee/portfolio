@@ -17,9 +17,11 @@ body {
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
+  overflow-x: hidden;
   color: rgb(var(--foreground-rgb));
   background: rgb(var(--background-rgb));
   background-image:
@@ -43,6 +45,19 @@ body {
 
 .section-anchor {
   scroll-margin-top: 6rem;
+}
+
+@media (max-width: 640px) {
+  .section-anchor {
+    scroll-margin-top: 5.25rem;
+  }
+}
+
+/* Prevent long tokens (URLs, emails, headings) from forcing horizontal scroll */
+.prose-safe {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  hyphens: auto;
 }
 
 .glass-panel {

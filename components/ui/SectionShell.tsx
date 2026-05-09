@@ -17,7 +17,7 @@ export default function SectionShell({ id, children, className }: SectionShellPr
       variants={fadeUp}
       initial="hidden"
       animate="visible"
-      className={`section-anchor relative overflow-hidden rounded-[28px] border border-white/8 bg-panel/40 p-6 sm:p-8 lg:p-10 ${className ?? ""}`}
+      className={`section-anchor relative min-w-0 max-w-full overflow-hidden rounded-[28px] border border-white/8 bg-panel/40 p-5 sm:p-8 sm:rounded-[28px] lg:p-10 ${className ?? ""}`}
     >
       <div
         aria-hidden

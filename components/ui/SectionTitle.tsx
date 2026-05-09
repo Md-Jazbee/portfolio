@@ -19,7 +19,7 @@ export default function SectionTitle({
   align = "left",
 }: SectionTitleProps) {
   return (
-    <div className={align === "center" ? "mx-auto max-w-2xl text-center" : "max-w-3xl"}>
+    <div className={align === "center" ? "mx-auto max-w-2xl min-w-0 text-center" : "max-w-3xl min-w-0"}>
       <motion.span
         variants={fadeUp}
         initial="hidden"
@@ -36,7 +36,7 @@ export default function SectionTitle({
         whileInView="visible"
         viewport={viewportOnce}
         transition={{ delay: 0.05 }}
-        className="mt-4 text-3xl font-semibold leading-tight tracking-tight text-foreground sm:text-4xl lg:text-5xl"
+        className="mt-4 break-words text-3xl font-semibold leading-tight tracking-tight text-foreground sm:text-4xl lg:text-5xl"
       >
         {title}
         {highlight ? (
@@ -53,7 +53,7 @@ export default function SectionTitle({
           whileInView="visible"
           viewport={viewportOnce}
           transition={{ delay: 0.1 }}
-          className="mt-4 max-w-2xl text-base text-muted"
+          className="mt-4 max-w-2xl text-base text-muted prose-safe"
         >
           {description}
         </motion.p>

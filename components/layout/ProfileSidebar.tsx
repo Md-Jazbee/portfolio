@@ -26,7 +26,7 @@ export default function ProfileSidebar({
       initial={{ opacity: 0, x: -30, filter: "blur(12px)" }}
       animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
       transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-      className="order-2 group relative flex flex-col gap-7 overflow-hidden rounded-3xl border border-white/10 bg-panel/55 p-6 backdrop-blur-xl shadow-[0_30px_80px_-40px_rgba(0,0,0,0.85)] xl:order-1 xl:sticky xl:top-24 xl:max-h-[calc(100vh-7rem)] xl:overflow-y-auto"
+      className="order-2 group relative flex min-w-0 max-w-full flex-col gap-7 overflow-hidden rounded-3xl border border-white/10 bg-panel/55 p-5 backdrop-blur-xl sm:p-6 xl:order-1 xl:sticky xl:top-24 xl:max-h-[calc(100vh-7rem)] xl:overflow-y-auto"
     >
       <div
         aria-hidden
@@ -37,7 +37,7 @@ export default function ProfileSidebar({
         }}
       />
 
-      <div className="flex items-center gap-4">
+      <div className="flex flex-wrap items-center gap-4">
         <motion.div
           className="grid h-16 w-16 place-items-center rounded-2xl border border-accent/40 bg-accent/15 text-2xl font-semibold text-accent shadow-[0_0_30px_-10px_var(--primary_color)]"
           animate={
@@ -55,7 +55,7 @@ export default function ProfileSidebar({
         >
           {initials}
         </motion.div>
-        <div>
+        <div className="min-w-0 flex-1 basis-[200px]">
           <p className="text-xs uppercase tracking-[0.3em] text-muted">Available for work</p>
           <p className="mt-1 inline-flex items-center gap-2 text-sm text-foreground">
             <span className="relative flex h-2 w-2">
@@ -70,31 +70,33 @@ export default function ProfileSidebar({
       <div>
         <h2 className="text-2xl font-semibold tracking-tight text-foreground">{profile.name}</h2>
         <p className="mt-1 text-sm text-accent">{profile.role}</p>
-        <p className="mt-4 text-sm leading-relaxed text-muted">{profile.shortBio}</p>
+        <p className="prose-safe mt-4 text-sm leading-relaxed text-muted sm:text-[15px]">{profile.shortBio}</p>
       </div>
 
       <div className="space-y-2 text-sm">
         <p className="text-xs uppercase tracking-[0.32em] text-muted">Reach me</p>
         <a
           href={`mailto:${profile.email}`}
-          className="group/link flex items-center justify-between rounded-xl border border-white/5 bg-background/30 px-3 py-2 text-foreground transition hover:border-accent/60"
+          className="group/link flex min-w-0 items-center justify-between gap-2 rounded-xl border border-white/5 bg-background/30 px-3 py-2.5 text-foreground transition hover:border-accent/60"
         >
-          <span className="text-sm">{profile.email}</span>
+          <span className="min-w-0 flex-1 break-all text-left text-xs leading-snug sm:break-words sm:text-sm">
+            {profile.email}
+          </span>
           <span className="text-muted transition group-hover/link:translate-x-0.5 group-hover/link:text-accent">→</span>
         </a>
         <a
           href={`tel:${profile.phone}`}
-          className="group/link flex items-center justify-between rounded-xl border border-white/5 bg-background/30 px-3 py-2 text-muted transition hover:border-accent/60 hover:text-foreground"
+          className="group/link flex min-w-0 items-center justify-between gap-2 rounded-xl border border-white/5 bg-background/30 px-3 py-2.5 text-muted transition hover:border-accent/60 hover:text-foreground"
         >
-          <span className="text-sm">{profile.phone}</span>
+          <span className="min-w-0 flex-1 text-left text-xs tabular-nums sm:text-sm">{profile.phone}</span>
           <span className="transition group-hover/link:translate-x-0.5 group-hover/link:text-accent">→</span>
         </a>
-        <p className="text-xs text-muted">Based in {profile.location}</p>
+        <p className="prose-safe text-xs text-muted">Based in {profile.location}</p>
       </div>
 
       <div>
         <p className="mb-2 text-xs uppercase tracking-[0.32em] text-muted">Connect</p>
-        <div className="grid grid-cols-3 gap-2">
+        <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
           {socialLinks.map((item) => (
             <a
               key={item.label}

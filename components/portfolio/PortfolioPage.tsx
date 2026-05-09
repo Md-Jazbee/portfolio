@@ -51,9 +51,9 @@ export default function PortfolioPage({ data }: PortfolioPageProps) {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 1.1, ease: [0.16, 1, 0.3, 1] }}
-        className="relative mx-auto max-w-[1500px] px-4 pb-20 pt-28 sm:px-6 lg:px-10"
+        className="relative mx-auto w-full min-w-0 max-w-[1500px] overflow-x-clip px-3 pb-20 pt-[6.5rem] sm:px-6 sm:pt-28 lg:px-10"
       >
-        <div className="grid gap-8 xl:grid-cols-[340px_1fr] 2xl:grid-cols-[380px_1fr]">
+        <div className="grid min-w-0 gap-8 xl:grid-cols-[340px_1fr] 2xl:grid-cols-[380px_1fr]">
           <ProfileSidebar
             profile={data.profile}
             socialLinks={data.socialLinks}
@@ -61,7 +61,7 @@ export default function PortfolioPage({ data }: PortfolioPageProps) {
             initials={initials}
           />
 
-          <div className="order-1 flex flex-col gap-10 lg:gap-14 xl:order-2">
+          <div className="order-1 flex min-w-0 flex-col gap-10 lg:gap-14 xl:order-2">
             <HeroSection profile={data.profile} stats={data.heroStats} />
             <AboutSection strengths={data.strengths} />
             <ExperienceSection items={data.experience} />

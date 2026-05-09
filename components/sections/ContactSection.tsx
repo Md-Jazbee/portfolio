@@ -43,7 +43,7 @@ export default function ContactSection({ contact, profile, socialLinks }: Contac
       >
         <a
           href={`mailto:${profile.email}`}
-          className="text-balance text-3xl font-semibold tracking-tight text-foreground sm:text-4xl lg:text-5xl"
+          className="prose-safe max-w-full min-w-0 break-all text-balance text-2xl font-semibold tracking-tight text-foreground sm:break-normal sm:text-3xl lg:text-4xl xl:text-5xl"
         >
           <span className="text-gradient">{profile.email}</span>
         </a>

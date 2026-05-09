@@ -20,23 +20,26 @@ export default function AnimatedHeading({
   const words = text.split(" ");
 
   return (
-    <h1 className={className}>
+    <h1 className={`max-w-full min-w-0 ${className ?? ""}`}>
       <span className="sr-only">
         {text}
         {highlight ? ` ${highlight}` : ""}
       </span>
       <motion.span
         aria-hidden
-        className="inline-flex flex-wrap gap-x-[0.28em]"
+        className="flex w-full max-w-full min-w-0 flex-wrap gap-x-[0.28em] gap-y-[0.12em]"
         initial="hidden"
         whileInView="visible"
         viewport={viewportOnce}
         transition={{ staggerChildren: reduced ? 0 : 0.06 }}
       >
         {words.map((word, idx) => (
-          <span key={`${word}-${idx}`} className="inline-flex overflow-hidden pb-[0.05em]">
+          <span
+            key={`${word}-${idx}`}
+            className="inline-flex min-w-0 max-w-full pb-[0.05em]"
+          >
             <motion.span
-              className="inline-block will-change-transform"
+              className="inline-block max-w-full min-w-0 break-words will-change-transform"
               variants={reduced ? { hidden: { opacity: 0 }, visible: { opacity: 1 } } : heroChar}
             >
               {word}
@@ -44,9 +47,9 @@ export default function AnimatedHeading({
           </span>
         ))}
         {highlight ? (
-          <span className="inline-flex overflow-hidden pb-[0.05em]">
+          <span className="inline-flex min-w-0 max-w-full basis-full pb-[0.05em] sm:basis-auto">
             <motion.span
-              className={`inline-block will-change-transform ${highlightClassName}`}
+              className={`inline-block max-w-full min-w-0 break-words will-change-transform ${highlightClassName}`}
               variants={reduced ? { hidden: { opacity: 0 }, visible: { opacity: 1 } } : heroChar}
             >
               {highlight}

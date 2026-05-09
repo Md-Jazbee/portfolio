@@ -28,7 +28,7 @@ export default function HeroSection({ profile, stats }: HeroSectionProps) {
     <section
       id="home"
       ref={ref}
-      className="section-anchor relative overflow-hidden rounded-[32px] border border-white/8 bg-panel/40 p-7 sm:p-10 lg:p-14"
+      className="section-anchor relative min-w-0 max-w-full overflow-hidden rounded-[28px] border border-white/8 bg-panel/40 p-5 sm:p-8 sm:rounded-[32px] lg:p-14"
     >
       <div
         aria-hidden
@@ -38,12 +38,12 @@ export default function HeroSection({ profile, stats }: HeroSectionProps) {
             "radial-gradient(800px circle at 0% 0%, color-mix(in oklab, var(--primary_color) 22%, transparent), transparent 60%), radial-gradient(700px circle at 100% 100%, rgba(20,197,253,0.18), transparent 60%)",
         }}
       />
-      <motion.div style={{ y, opacity, scale }} className="relative">
+      <motion.div style={{ y, opacity, scale }} className="relative min-w-0 max-w-full">
         <motion.span
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-          className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1 text-[10px] font-medium uppercase tracking-[0.32em] text-muted backdrop-blur"
+          className="inline-flex max-w-full flex-wrap items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[9px] font-medium uppercase tracking-[0.28em] text-muted backdrop-blur sm:px-4 sm:text-[10px] sm:tracking-[0.32em]"
         >
           <span className="relative flex h-2 w-2">
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75" />
@@ -52,12 +52,12 @@ export default function HeroSection({ profile, stats }: HeroSectionProps) {
           Hello, I am Jasbeer
         </motion.span>
 
-        <div className="mt-7 grid gap-10 lg:grid-cols-[1fr_auto] lg:items-end">
-          <div>
+        <div className="mt-6 grid min-w-0 max-w-full gap-10 sm:mt-7 lg:grid-cols-[1fr_auto] lg:items-end">
+          <div className="min-w-0 max-w-full">
             <AnimatedHeading
               text="Building resilient platforms"
               highlight="for developer velocity."
-              className="text-balance text-[clamp(2.4rem,5.6vw,4.5rem)] font-semibold leading-[1.05] tracking-tight text-foreground"
+              className="text-balance text-[clamp(1.45rem,calc(4.2vw+0.65rem),4.5rem)] font-semibold leading-[1.07] tracking-tight text-foreground"
               highlightClassName="text-gradient"
             />
 
@@ -66,7 +66,7 @@ export default function HeroSection({ profile, stats }: HeroSectionProps) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.4 }}
               transition={{ duration: 0.8, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-              className="mt-6 max-w-2xl text-base leading-relaxed text-muted sm:text-lg"
+              className="prose-safe mt-5 max-w-2xl text-base leading-relaxed text-muted sm:mt-6 sm:text-lg"
             >
               {profile.longBio}
             </motion.p>

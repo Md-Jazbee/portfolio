@@ -38,16 +38,16 @@ export default function TopNav({ items, brand, onOpenMobile }: TopNavProps) {
   }, [items]);
 
   return (
-    <header className="pointer-events-none fixed inset-x-0 top-0 z-40 px-3 pt-4 sm:px-6">
-      <div className="pointer-events-auto mx-auto flex max-w-6xl items-center justify-between gap-4 rounded-full border border-white/10 bg-background/55 px-4 py-2 backdrop-blur-xl shadow-[0_18px_40px_-25px_rgba(0,0,0,0.8)]">
+    <header className="pointer-events-none fixed inset-x-0 top-0 z-40 px-2 pt-3 sm:px-6 sm:pt-4">
+      <div className="pointer-events-auto mx-auto flex w-full min-w-0 max-w-6xl items-center justify-between gap-2 rounded-full border border-white/10 bg-background/55 px-3 py-2 backdrop-blur-xl shadow-[0_18px_40px_-25px_rgba(0,0,0,0.8)] sm:gap-4 sm:px-4">
         <a
           href="#home"
-          className="group flex items-center gap-2 rounded-full px-3 py-1.5 text-sm font-medium text-foreground"
+          className="group flex min-w-0 max-w-[46%] items-center gap-2 truncate rounded-full py-1.5 pl-1 pr-2 text-sm font-medium text-foreground sm:max-w-none sm:px-3"
         >
           <span className="grid h-7 w-7 place-items-center rounded-full border border-accent/40 bg-accent/15 text-accent">
             <span className="text-[11px] font-semibold tracking-wider">J</span>
           </span>
-          <span className="tracking-tight">{brand}</span>
+          <span className="min-w-0 truncate tracking-tight">{brand}</span>
         </a>
 
         <nav className="hidden lg:block">
